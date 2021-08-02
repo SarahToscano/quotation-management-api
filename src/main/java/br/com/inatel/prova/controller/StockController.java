@@ -1,6 +1,7 @@
 package br.com.inatel.prova.controller;
 
 import java.net.URI;
+import java.util.List;
 import java.util.Optional;
 
 import javax.transaction.Transactional;
@@ -52,7 +53,17 @@ public class StockController {
 		}
 		return ResponseEntity.notFound().build();
 	}
-
+	
+	@GetMapping
+	public ResponseEntity<List<StockDto>> listAll() {
+		List<Stock> optional = stockRepository.findAll();
+		if(optional.isEmpty()) {
+			return ResponseEntity.notFound().build();
+		}
+		else {
+			return ResponseEntity.ok(StockDto.converter(optional));
+		}
+	}
 	
 }
 

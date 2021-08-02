@@ -6,7 +6,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.UUID;
+import java.util.stream.Collectors;
+
 import javax.persistence.ManyToOne;
+
 import br.com.inatel.prova.model.Quotes;
 import br.com.inatel.prova.model.Stock;
 
@@ -26,6 +29,10 @@ public class StockDto {
 		}
 	}
 
+	public StockDto(List<Stock> stock) {
+		// TODO Auto-generated constructor stub
+	}
+
 	public UUID getId() {
 		return id;
 	}
@@ -36,6 +43,11 @@ public class StockDto {
 
 	public Map<LocalDate, String> getQuotes() {
 		return quotes;
+	}
+
+	public static List<StockDto> converter(List<Stock> optional) {
+		return optional.stream().map(StockDto::new).collect(Collectors.toList());
+		
 	}
 	
 	
