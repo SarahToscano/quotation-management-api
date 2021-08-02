@@ -30,6 +30,9 @@ public class Quotes {
 		this.date = date;
 		this.stock = stock;
 	}
+	public Quotes() {
+		
+	}
 
 	@Override
 	public int hashCode() {

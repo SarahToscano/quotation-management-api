@@ -29,19 +29,23 @@ public class Stock {
 	private UUID id;
 	
 	
-	private String sctockId;
+	private String stockId;
 		
 	@OneToMany(mappedBy = "stock", cascade = { CascadeType.PERSIST, CascadeType.MERGE })
     @OnDelete(action = OnDeleteAction.CASCADE)
 	private List<Quotes> quotes = new ArrayList<>();
 	
 	public Stock(String stockId) {
-		this.sctockId = stockId;
+		this.stockId = stockId;
+	}
+	
+	public Stock() {
+		
 	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(id, quotes, sctockId);
+		return Objects.hash(id, quotes, stockId);
 	}
 
 	@Override
@@ -54,7 +58,7 @@ public class Stock {
 			return false;
 		Stock other = (Stock) obj;
 		return Objects.equals(id, other.id) && Objects.equals(quotes, other.quotes)
-				&& Objects.equals(sctockId, other.sctockId);
+				&& Objects.equals(stockId, other.stockId);
 	}
 
 	public UUID getId() {
@@ -66,11 +70,11 @@ public class Stock {
 	}
 
 	public String getSctockId() {
-		return sctockId;
+		return stockId;
 	}
 
-	public void setSctockId(String sctockId) {
-		this.sctockId = sctockId;
+	public void setSctockId(String stockId) {
+		this.stockId = stockId;
 	}
 
 	public List<Quotes> getQuotes() {
