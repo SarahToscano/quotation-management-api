@@ -22,11 +22,12 @@ import org.hibernate.annotations.OnDeleteAction;
 
 @Entity
 public class Stock {
+	
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO, generator = "uuid")
-	@GenericGenerator(name = "uuid", strategy = "org.hibernate.id.UUIDGenerator")
-	@Column(name = "id", updatable = false, unique = true, nullable = false)
-	private UUID id;
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Long id;
+	
+	private UUID uuid;
 	
 	
 	private String stockId;
@@ -40,6 +41,7 @@ public class Stock {
 	}
 	
 	public Stock() {
+		this.uuid = uuid.randomUUID();
 		
 	}
 
@@ -61,11 +63,11 @@ public class Stock {
 				&& Objects.equals(stockId, other.stockId);
 	}
 
-	public UUID getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(UUID id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
@@ -88,6 +90,24 @@ public class Stock {
 	public void addQuotes(Quotes quote) {
         quotes.add(quote);
     }
+
+	public UUID getUuid() {
+		return uuid;
+	}
+
+	public void setUuid(UUID uuid) {
+		this.uuid = uuid;
+	}
+
+	public String getStockId() {
+		return stockId;
+	}
+
+	public void setStockId(String stockId) {
+		this.stockId = stockId;
+	}
+	
+	
 	
 	
 	

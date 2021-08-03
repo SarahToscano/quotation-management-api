@@ -5,17 +5,17 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import java.util.UUID;
 import java.util.stream.Collectors;
 
 import javax.persistence.ManyToOne;
-
 import br.com.inatel.prova.model.Quotes;
 import br.com.inatel.prova.model.Stock;
 
 public class StockDto {
 	
-	private UUID id;
+	private Long id;
 	private String sctockId;
 	private Map<LocalDate, String> quotes;
 	
@@ -33,7 +33,8 @@ public class StockDto {
 		// TODO Auto-generated constructor stub
 	}
 
-	public UUID getId() {
+
+	public Long getId() {
 		return id;
 	}
 
@@ -49,6 +50,9 @@ public class StockDto {
 		return optional.stream().map(StockDto::new).collect(Collectors.toList());
 		
 	}
+
+	
+	
 	
 	
 

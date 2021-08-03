@@ -11,6 +11,10 @@ public class StockRegisterDto {
 		this.id = stockRegister.getId();
 		this.description = stockRegister.getDescription();
 	}
+	
+	public StockRegisterDto(){
+		
+	}
 
 	public String getId() {
 		return id;
