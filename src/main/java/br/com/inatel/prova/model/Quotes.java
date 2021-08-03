@@ -11,6 +11,8 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 
 @Entity
 
@@ -19,7 +21,9 @@ public class Quotes {
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
+	@JsonFormat(pattern = "YYYY-MM-DD")
 	private LocalDate date;
+	
 	private String value;
 	
 	@ManyToOne
