@@ -45,13 +45,14 @@ public class StockController {
     }
 	
 	@GetMapping("{stockId}")
-	public ResponseEntity<StockDto> list(@PathVariable String stockId) {
-		Optional<Stock> optional = stockRepository.findByStockId(stockId);
-		if (optional.isPresent()) {
-			Stock stock = optional.get();
-			return ResponseEntity.ok(new StockDto(stock));
+	public ResponseEntity<List<StockDto>>  list(@PathVariable String stockId) {
+		List<Stock> optional = stockRepository.findAllByStockId(stockId);
+		if (optional.isEmpty()) {
+			return ResponseEntity.notFound().build();
 		}
-		return ResponseEntity.notFound().build();
+		else {
+			return ResponseEntity.ok(StockDto.converter(optional));
+		}
 	}
 	
 	@GetMapping
