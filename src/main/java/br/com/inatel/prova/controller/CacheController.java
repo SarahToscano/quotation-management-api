@@ -12,8 +12,8 @@ import br.com.inatel.prova.service.externalAPI.ExternalApiService;
 @RequestMapping("/stockcache")
 public class CacheController {
 	
-	@DeleteMapping
 	@CacheEvict(value = "getStocksRegistered", allEntries = true)
+	@DeleteMapping
 	public void cleanCache() {
 		System.out.println("Invalidating the cache ------------------");
 	}

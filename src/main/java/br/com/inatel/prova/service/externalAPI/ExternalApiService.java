@@ -4,6 +4,7 @@ package br.com.inatel.prova.service.externalAPI;
 import java.util.Arrays;
 import java.util.List;
 
+import javax.transaction.Transactional;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -50,12 +51,13 @@ public class ExternalApiService {
 		return Arrays.asList(stocks);
 	}
 	
-	@Cacheable(value = "getStock")
+	@Cacheable(value = "getStocksRegistered")
 	public StockRegisterDto getStockById(String stockId) {
 		String url = stock_manager_url + "/stock/" + stockId;
 		return restTemplate.getForObject(url, StockRegisterDto.class);
 	}
-
+	
+	
 	@CacheEvict (value = "getStocksRegistered", allEntries=true)
 	public StockRegisterForm createNewStocks(StockRegisterForm form, UriComponentsBuilder uriBuilder) {
 		String url = stock_manager_url + "/stock";	
