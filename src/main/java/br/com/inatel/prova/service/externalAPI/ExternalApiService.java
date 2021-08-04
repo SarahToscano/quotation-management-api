@@ -36,7 +36,8 @@ public class ExternalApiService {
 	
 	private RestTemplate restTemplate;
 	
-	private static final String stock_manager_url = "http://localhost:8080";
+	@Value("${manager.url}")
+	private String stock_manager_url;
 	
 	@Autowired
 	public ExternalApiService () {

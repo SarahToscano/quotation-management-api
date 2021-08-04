@@ -15,7 +15,6 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 
 
 @Entity
-
 public class Quotes {
 
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
