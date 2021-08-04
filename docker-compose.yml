@@ -39,3 +39,4 @@ services:
 networks:
     stockquotemanager-network:
         driver: bridge
+        
