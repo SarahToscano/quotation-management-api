@@ -84,13 +84,13 @@
 			<artifactId>cucumber-java</artifactId>
 			<version>6.10.3</version>
 		</dependency>
-
+		
 		<dependency>
 			<groupId>io.cucumber</groupId>
 			<artifactId>cucumber-spring</artifactId>
 			<version>6.10.3</version>
 		</dependency>
-
+		
 		<dependency>
 			<groupId>io.cucumber</groupId>
 			<artifactId>cucumber-junit</artifactId>
@@ -103,6 +103,8 @@
 				</exclusion>
 			</exclusions>
 		</dependency>
+		
+		
 		
 	</dependencies>
 

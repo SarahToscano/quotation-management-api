@@ -28,6 +28,10 @@ public class StockDto {
 			quotes.put(i.getDate(), i.getValue());
 		}
 	}
+	
+	public StockDto() {
+		// TODO Auto-generated constructor stub
+	}
 
 	public StockDto(List<Stock> stock) {
 		// TODO Auto-generated constructor stub
@@ -50,6 +54,20 @@ public class StockDto {
 		return optional.stream().map(StockDto::new).collect(Collectors.toList());
 		
 	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public void setSctockId(String sctockId) {
+		this.sctockId = sctockId;
+	}
+
+	public void setQuotes(Map<LocalDate, String> quotes) {
+		this.quotes = quotes;
+	}
+	
+	
 
 	
 	
